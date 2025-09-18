@@ -4,6 +4,8 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
+import Image from "next/image";
+import prometheus_logo from "@/assets/prometheus_logo.svg";
 
 export default function Navbar() {
   const router = useRouter();
@@ -20,9 +22,14 @@ export default function Navbar() {
   return (
     <header className="fixed z-50 w-full">
       <nav className="container mx-[0.5rem] my-[1rem] flex items-center px-[1.25rem] py-[1rem]">
-        <p className="bg-gradient-to-r from-[#fff] to-[#2a2a2a] bg-clip-text text-[1.75rem] font-semibold uppercase leading-[1] tracking-[-1.25] text-transparent">
-          Prometheus
-        </p>
+        <div className="relative h-[3.75rem] w-[3.75rem] md:h-[5rem] md:w-[5rem]">
+          <Image
+            src={prometheus_logo}
+            alt="company logo"
+            fill
+            className="object-contain"
+          />
+        </div>
         <ul className="hidden flex-1 justify-center sm:flex">
           {navLinks.map((link, i) => {
             const isActive =
