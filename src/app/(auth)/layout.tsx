@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import clsx from "clsx";
-import Navbar from "@/components/layout/Navbar";
 
-export const inter = Inter({
-  variable: "--font-inter",
+export const jakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -21,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(inter.variable, "antialiased")}>{children}</body>
+      <body className={clsx(jakartaSans.variable, "antialiased")}>
+        {children}
+      </body>
     </html>
   );
 }

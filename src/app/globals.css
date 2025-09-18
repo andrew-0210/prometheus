@@ -6,11 +6,11 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-jakarta-sans);
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-jakarta-sans);
 }
 
 .container {
