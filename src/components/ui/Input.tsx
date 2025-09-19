@@ -17,7 +17,10 @@ export default function Input({
   const [input, setInput] = useState("");
   return (
     <div className="flex flex-col gap-[0.25rem]">
-      <label htmlFor={label} className="text-[0.875rem]">
+      <label
+        htmlFor={label}
+        className="text-[0.75rem] font-semibold md:text-[0.938rem]"
+      >
         {label}
       </label>
       <input

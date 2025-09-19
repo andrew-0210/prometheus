@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import clsx from "clsx";
+import AppBackground from "@/components/ui/Background";
 
 export const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  form,
 }: Readonly<{
-  children: React.ReactNode;
+  form: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={clsx(jakartaSans.variable, "antialiased")}>
-        {children}
+        <AppBackground>{form}</AppBackground>
       </body>
     </html>
   );

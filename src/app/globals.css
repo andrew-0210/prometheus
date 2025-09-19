@@ -11,6 +11,7 @@
 
 body {
   font-family: var(--font-jakarta-sans);
+  @apply text-[0.75rem] leading-[-0.5] md:text-[0.938rem];
 }
 
 .container {
