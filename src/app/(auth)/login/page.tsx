@@ -6,8 +6,10 @@ import Link from "next/link";
 import prometheus_logo from "@/assets/prometheus_logo.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import {  useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter()
   useGSAP(() => {
     gsap.to("#login", {
       opacity: 1,
@@ -72,7 +74,7 @@ export default function Login() {
             </div>
 
             <div className="flex">
-              <Button className="leading-2.5 flex-1 cursor-pointer rounded-[8px] bg-[#1072ce] py-[1rem] font-semibold lg:py-[1.125rem]">
+              <Button className="leading-2.5 flex-1 cursor-pointer rounded-[8px] bg-[#1072ce] py-[1rem] font-semibold lg:py-[1.125rem]" eventHandler={()=>{router.push('/dashboard')}}>
                 Login
               </Button>
             </div>

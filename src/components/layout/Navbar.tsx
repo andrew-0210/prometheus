@@ -1,5 +1,5 @@
 "use client";
-import { navLinks } from "@/constants/navlinks";
+import { navLinks } from "@/constants/links";
 import Link from "next/link";
 import Button from "../ui/Button";
 import { usePathname, useRouter } from "next/navigation";

@@ -15,7 +15,7 @@ export default function AppBackground({
     });
   }, []);
   return (
-    <div className="relative h-dvh md:overflow-hidden md:py-[1rem]">
+    <div className="relative h-dvh md:py-[1rem]">
       <div className="md:-translate-1/4 absolute -z-50">
         <div className="relative hidden scale-0 opacity-0 md:block" id="logo">
           <Image

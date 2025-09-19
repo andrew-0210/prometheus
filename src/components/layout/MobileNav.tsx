@@ -1,4 +1,4 @@
-import { navLinks } from "@/constants/navlinks";
+import { navLinks } from "@/constants/links";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -57,7 +57,9 @@ export default function MobileNav({ setIsMenuOpen }: Props) {
                 "cursor-pointer py-[0.5rem] font-medium transition-all hover:text-[#1072ce]",
               )}
             >
-              <Link href={link.href} onClick={()=>setIsMenuOpen?.(false)}>{link.title}</Link>
+              <Link href={link.href} onClick={() => setIsMenuOpen?.(false)}>
+                {link.title}
+              </Link>
             </li>
           );
         })}
