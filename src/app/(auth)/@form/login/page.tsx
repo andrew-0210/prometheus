@@ -18,7 +18,7 @@ export default function Login() {
   }, []);
 
   return (
-    <main className="p-[1.25rem] lg:px-[3rem]">
+    <main className="flex items-center justify-center p-[1.25rem] lg:px-[3rem]">
       <section className="mx-auto grid h-dvh max-w-[1400px] content-center gap-[2rem] lg:grid-cols-12">
         <div
           className="translate-y-20 rounded-[20px] bg-gradient-to-b from-[#666666] to-[#000000] p-[1px] opacity-0 lg:col-span-5 lg:col-start-7"
@@ -52,14 +52,14 @@ export default function Login() {
               <Input
                 type="text"
                 label="Email"
-                className="leading-1 min-w-[20rem] rounded-[8px] bg-[#172533] px-[1rem] py-[1rem] outline-0 focus:ring focus:ring-[#1072ce] lg:py-[1.125rem]"
+                className="leading-1 min-w-[20rem] rounded-[8px] bg-[#172533] px-[1rem] py-[1rem] outline-0 focus:ring focus:ring-[#1072ce] lg:py-[0.938rem]"
                 placeholder="Enter email address"
               />
               <div className="mb-[1rem]">
                 <Input
                   type="password"
                   label="Password"
-                  className="leading-1 min-w-[20rem] rounded-[8px] bg-[#172533] px-[1rem] py-[1rem] outline-0 focus:ring focus:ring-[#1072ce] lg:py-[1.125rem]"
+                  className="leading-1 min-w-[20rem] rounded-[8px] bg-[#172533] px-[1rem] py-[1rem] outline-0 focus:ring focus:ring-[#1072ce] lg:py-[0.938rem]"
                   placeholder="Enter password"
                 />
                 <Link

@@ -8,8 +8,13 @@ import Image from "next/image";
 import prometheus_logo from "@/assets/prometheus_logo.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useState } from "react";
+import MobileNav from "./MobileNav";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -19,6 +24,10 @@ export default function Navbar() {
 
   const handleLogin = () => {
     router.push("/login");
+  };
+
+  const handleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
   };
 
   useGSAP(() => {
@@ -33,18 +42,19 @@ export default function Navbar() {
   return (
     <header className="fixed z-50 w-full">
       <nav
-        className="container mx-[0.5rem] my-[1rem] flex -translate-y-20 items-center px-[1.25rem] py-[1rem] opacity-0"
+        className="container mx-[0.5rem] flex -translate-y-20 items-center justify-between px-[1.25rem] py-[1rem] opacity-0"
         id="nav"
       >
-        <div className="relative h-[3.75rem] w-[3.75rem] md:h-[5rem] md:w-[5rem]">
+        <div className="relative h-[3.75rem] w-[3.75rem] transition-all md:h-[5rem] md:w-[5rem]">
           <Image
             src={prometheus_logo}
             alt="company logo"
             fill
             className="object-contain"
+            priority
           />
         </div>
-        <ul className="hidden flex-1 justify-center sm:flex">
+        <ul className="hidden flex-1 justify-center md:flex">
           {navLinks.map((link, i) => {
             const isActive =
               link.href === "/"
@@ -63,7 +73,7 @@ export default function Navbar() {
             );
           })}
         </ul>
-        <div className="flex gap-[2rem]">
+        <div className="hidden gap-[2rem] md:flex">
           <Button
             className="cursor-pointer text-[#1072ce]"
             eventHandler={handleSignUp}
@@ -77,6 +87,10 @@ export default function Navbar() {
             Login
           </Button>
         </div>
+        <div className="md:hidden" onClick={handleMenu}>
+          <AiOutlineMenu color="#1072ce" size={24} />
+        </div>
+        {isMenuOpen && <MobileNav setIsMenuOpen={setIsMenuOpen} />}
       </nav>
     </header>
   );
