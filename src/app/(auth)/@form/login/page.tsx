@@ -1,14 +1,29 @@
+"use client";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Image from "next/image";
 import Link from "next/link";
 import prometheus_logo from "@/assets/prometheus_logo.svg";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Login() {
+  useGSAP(() => {
+    gsap.to("#login", {
+      opacity: 1,
+      duration: 1.5,
+      ease: "power1.inOut",
+      y: 0,
+    });
+  }, []);
+
   return (
     <main className="p-[1.25rem] lg:px-[3rem]">
       <section className="mx-auto grid h-dvh max-w-[1400px] content-center gap-[2rem] lg:grid-cols-12">
-        <div className="rounded-[20px] bg-gradient-to-b from-[#666666] to-[#000000] p-[1px] lg:col-span-5 lg:col-start-7">
+        <div
+          className="translate-y-20 rounded-[20px] bg-gradient-to-b from-[#666666] to-[#000000] p-[1px] opacity-0 lg:col-span-5 lg:col-start-7"
+          id="login"
+        >
           <div className="flex flex-col gap-[1.875rem] rounded-[20px] bg-gradient-to-b from-[#172533] to-[#05070A] p-[1.25rem] md:p-[2.5rem]">
             <div className="relative h-[3.75rem] w-[3.75rem] md:h-[5rem] md:w-[5rem]">
               <Image
@@ -24,7 +39,9 @@ export default function Login() {
                 Welcome back.
               </h2>
               <p className="text-[0.875rem] leading-[-0.5] md:text-[0.938rem]">
-                <span className="text-[#747474]">Don't have an account?</span>{" "}
+                <span className="text-[#747474]">
+                  Don&apos;t have an account?
+                </span>{" "}
                 <Link href="/signup" className="font-semibold text-[#1072ce]">
                   Create new account &rarr;
                 </Link>

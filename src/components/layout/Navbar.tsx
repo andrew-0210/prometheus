@@ -6,6 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import Image from "next/image";
 import prometheus_logo from "@/assets/prometheus_logo.svg";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Navbar() {
   const router = useRouter();
@@ -19,9 +21,21 @@ export default function Navbar() {
     router.push("/login");
   };
 
+  useGSAP(() => {
+    gsap.to("#nav", {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power1.inOut",
+    });
+  }, []);
+
   return (
     <header className="fixed z-50 w-full">
-      <nav className="container mx-[0.5rem] my-[1rem] flex items-center px-[1.25rem] py-[1rem]">
+      <nav
+        className="container mx-[0.5rem] my-[1rem] flex -translate-y-20 items-center px-[1.25rem] py-[1rem] opacity-0"
+        id="nav"
+      >
         <div className="relative h-[3.75rem] w-[3.75rem] md:h-[5rem] md:w-[5rem]">
           <Image
             src={prometheus_logo}
