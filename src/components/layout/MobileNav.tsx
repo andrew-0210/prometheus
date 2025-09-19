@@ -57,7 +57,7 @@ export default function MobileNav({ setIsMenuOpen }: Props) {
                 "cursor-pointer py-[0.5rem] font-medium transition-all hover:text-[#1072ce]",
               )}
             >
-              <Link href={link.href}>{link.title}</Link>
+              <Link href={link.href} onClick={()=>setIsMenuOpen?.(false)}>{link.title}</Link>
             </li>
           );
         })}
